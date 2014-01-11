@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Compiling the overlay from .dts to .dtbo"
+
+dtc -O  dtb -o bone_pwm1-00A0.dtbo -b 0 -@ bone_pwm_p9_14.dts
+dtc -O  dtb -o bone_pwm2-00A0.dtbo -b 0 -@ bone_pwm_p9_16.dts
+dtc -O  dtb -o bone_pwm3-00A0.dtbo -b 0 -@ bone_pwm_p8_13.dts
+dtc -O  dtb -o bone_pwm4-00A0.dtbo -b 0 -@ bone_pwm_p8_19.dts
+

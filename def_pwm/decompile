@@ -1,0 +1,5 @@
+dtc -I dtb -O dts bone_pwm_P8_13-00A0.dtbo > bone_pwm_p8_13.dts
+dtc -I dtb -O dts bone_pwm_P8_19-00A0.dtbo > bone_pwm_p8_19.dts
+dtc -I dtb -O dts bone_pwm_P9_14-00A0.dtbo > bone_pwm_p9_14.dts
+dtc -I dtb -O dts bone_pwm_P9_16-00A0.dtbo > bone_pwm_p9_16.dts
+

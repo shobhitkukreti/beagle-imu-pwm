@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Compiling the overlay from .dts to .dtbo"
+
+dtc -O  dtb -o DM-PWM1-Test-00A0.dtbo -b 0 -@ pwm_P9_14-00A0.dts
+dtc -O  dtb -o DM-PWM2-Test-00A0.dtbo -b 0 -@ pwm_P9_16-00A0.dts
+dtc -O  dtb -o DM-PWM3-Test-00A0.dtbo -b 0 -@ pwm_P8_13-00A0.dts
+dtc -O  dtb -o DM-PWM4-Test-00A0.dtbo -b 0 -@ pwm_P8_19-00A0.dts
+

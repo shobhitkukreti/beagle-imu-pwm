@@ -1,0 +1,53 @@
+/dts-v1/;
+
+/ {
+	compatible = "ti,beaglebone", "ti,beaglebone-black";
+	part-number = "bone_pwm_P9_14";
+	version = "00A0";
+	exclusive-use = "P9.14", "ehrpwm1A";
+
+	fragment@0 {
+		target = <0xdeadbeef>;
+
+		__overlay__ {
+
+		pwm_P9_14:pinmux_pwm_P9_14_pins {
+				pinctrl-single,pins = <0x48 0x6>;
+				linux,phandle = <0x1>;
+				phandle = <0x1>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&ocp>;
+
+		__overlay__ {
+
+			pwm_test_P9_14 {
+				compatible = "pwm_test";
+				pwms = <&ehrpwm1 0x0 20000000 0x1>;
+				pwm-names = "PWM_P9_14";
+				pinctrl-names = "default";
+				pinctrl-0 = <&pwm_P9_14>;
+				enabled = <0x1>;
+				duty = <0x0>;
+				status = "okay";
+			};
+		};
+	};
+
+	__symbols__ {
+		pwm_P9_14 = "/fragment@0/__overlay__/pinmux_pwm_P9_14_pins";
+	};
+
+	__fixups__ {
+		am33xx_pinmux = "/fragment@0:target:0";
+		ocp = "/fragment@1:target:0";
+		ehrpwm1 = "/fragment@1/__overlay__/pwm_test_P9_14:pwms:0";
+	};
+
+	__local_fixups__ {
+		fixup = "/fragment@1/__overlay__/pwm_test_P9_14:pinctrl-0:0";
+	};
+};
