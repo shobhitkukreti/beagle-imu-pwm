@@ -1,3 +1,5 @@
+#!bin/bash
+
 direc=/sys/devices/ocp.3
 pwm1=$direc/pwm_test_P8_13.17
 pwm2=$direc/pwm_test_P8_19.18
